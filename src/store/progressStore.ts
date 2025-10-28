@@ -30,7 +30,7 @@ export const useProgressStore = create<ProgressStore>()(
         const updatedProgress: SkillProgress = {
           skillId,
           status,
-          startedAt: currentProgress?.startedAt || (status === 'in-progress' ? now : undefined),
+          startedAt: currentProgress?.startedAt || (status === 'available' ? now : undefined),
           masteredAt: status === 'mastered' ? now : undefined,
           notes: notes || currentProgress?.notes,
         };
