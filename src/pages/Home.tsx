@@ -144,92 +144,133 @@ const Home = () => {
           {/* Gross Motor */}
           <div
             onClick={() => navigate('/tree/gross-motor')}
-            className="card hover:shadow-xl hover:scale-105 active:scale-100 transition-all duration-200 cursor-pointer group"
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
           >
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                  Gross Motor Skills
-                </h2>
-                <p className="text-sm text-gray-600">
-                  Movement and physical milestones: tummy time, rolling, sitting, crawling, walking
-                </p>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      🤸
+                    </div>
+                    <span className="px-3 py-1 bg-primary-100 text-primary-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      24 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors leading-tight">
+                    Gross Motor Skills
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Movement and physical milestones: tummy time, rolling, sitting, crawling, walking
+                  </p>
+                </div>
               </div>
-              <div className="text-3xl">🤸</div>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-primary-600 font-medium">
-              <span>View Skill Tree</span>
-              <span>→</span>
+              <div className="flex items-center gap-2 text-sm text-primary-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
             </div>
           </div>
 
           {/* Fine Motor */}
           <div
             onClick={() => navigate('/tree/fine-motor')}
-            className="card hover:shadow-xl hover:scale-105 active:scale-100 transition-all duration-200 cursor-pointer group"
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
           >
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                  Fine Motor Skills
-                </h2>
-                <p className="text-sm text-gray-600">
-                  Hand and finger skills: grasping, reaching, pincer grip, stacking
-                </p>
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-teal-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-success-100 to-emerald-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      ✋
+                    </div>
+                    <span className="px-3 py-1 bg-success-100 text-success-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      16 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-success-600 transition-colors leading-tight">
+                    Fine Motor Skills
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Hand and finger skills: grasping, reaching, pincer grip, stacking
+                  </p>
+                </div>
               </div>
-              <div className="text-3xl">✋</div>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-primary-600 font-medium">
-              <span>View Skill Tree</span>
-              <span>→</span>
+              <div className="flex items-center gap-2 text-sm text-success-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
             </div>
           </div>
 
           {/* Coming soon cards */}
-          <div className="card opacity-60">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2">
-                  Language & Communication
-                </h2>
-                <p className="text-sm text-gray-600">
-                  Coming soon: cooing, babbling, first words
-                </p>
-              </div>
-              <div className="text-3xl">💬</div>
+          <div className="relative overflow-hidden bg-white/40 backdrop-blur-sm rounded-2xl border-2 border-dashed border-gray-300 p-7">
+            <div className="absolute top-4 right-4 px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase tracking-wide">
+              Coming Soon
             </div>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center text-xl">
+                💬
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-700 mb-2 leading-tight">
+              Language & Communication
+            </h2>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Cooing, babbling, first words, and language development
+            </p>
           </div>
 
-          <div className="card opacity-60">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2">
-                  Social & Emotional
-                </h2>
-                <p className="text-sm text-gray-600">
-                  Coming soon: smiling, attachment, emotional regulation
-                </p>
-              </div>
-              <div className="text-3xl">😊</div>
+          <div className="relative overflow-hidden bg-white/40 backdrop-blur-sm rounded-2xl border-2 border-dashed border-gray-300 p-7">
+            <div className="absolute top-4 right-4 px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase tracking-wide">
+              Coming Soon
             </div>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center text-xl">
+                😊
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-700 mb-2 leading-tight">
+              Social & Emotional
+            </h2>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Smiling, attachment, emotional regulation, and social interaction
+            </p>
           </div>
         </div>
 
         {/* Info section */}
-        <div className="mt-12 card bg-gradient-to-br from-primary-50 to-success-50 border-primary-200">
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            About Baby Skill Tree
-          </h3>
-          <p className="text-gray-700 mb-4">
-            Track your baby's developmental milestones in a fun, game-like interface. Each skill
-            builds on previous ones, just like leveling up in a game. Remember: every baby
-            develops at their own pace, and age ranges are approximate guidelines, not strict
-            rules.
-          </p>
-          <p className="text-sm text-gray-600">
-            <strong>Note:</strong> This app is for tracking and educational purposes. Always
-            consult your pediatrician if you have concerns about your baby's development.
-          </p>
+        <div className="mt-12 bg-gradient-to-br from-primary-50 via-white to-success-50 rounded-2xl border border-primary-200/60 p-8 shadow-lg">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-success-500 flex items-center justify-center shadow-md">
+              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                About Baby Skill Tree
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Track your baby's developmental milestones in a fun, game-like interface. Each skill
+                builds on previous ones, just like leveling up in a game. Remember: every baby
+                develops at their own pace, and age ranges are approximate guidelines, not strict
+                rules.
+              </p>
+              <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4">
+                <p className="text-sm text-amber-900 leading-relaxed">
+                  <strong className="font-bold">Important:</strong> This app is for tracking and educational purposes. Always
+                  consult your pediatrician if you have concerns about your baby's development.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
