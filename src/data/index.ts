@@ -1,15 +1,33 @@
 import type { Skill } from '../types';
 import { grossMotorSkills } from './grossMotorSkills';
 import { fineMotorSkills } from './fineMotorSkills';
+import { languageSkills } from './languageSkills';
+import { cognitiveSkills } from './cognitiveSkills';
+import { socialEmotionalSkills } from './socialEmotionalSkills';
+import { selfCareSkills } from './selfCareSkills';
+import { sensorySkills } from './sensorySkills';
 
 // Combine all skills
 export const allSkills: Skill[] = [
   ...grossMotorSkills,
   ...fineMotorSkills,
+  ...languageSkills,
+  ...cognitiveSkills,
+  ...socialEmotionalSkills,
+  ...selfCareSkills,
+  ...sensorySkills,
 ];
 
 // Export individual domains for filtering
-export { grossMotorSkills, fineMotorSkills };
+export {
+  grossMotorSkills,
+  fineMotorSkills,
+  languageSkills,
+  cognitiveSkills,
+  socialEmotionalSkills,
+  selfCareSkills,
+  sensorySkills,
+};
 
 // Helper to get skills by domain
 export const getSkillsByDomain = (domain: string): Skill[] => {
@@ -32,4 +50,24 @@ export const arePrerequisitesMet = (
   return skill.prerequisites.every(prereqId =>
     masteredSkills.includes(prereqId)
   );
+};
+
+// Helper to get statistics about the skill tree
+export const getSkillStats = () => {
+  const stats = {
+    total: allSkills.length,
+    byDomain: {
+      'gross-motor': grossMotorSkills.length,
+      'fine-motor': fineMotorSkills.length,
+      'language': languageSkills.length,
+      'cognitive': cognitiveSkills.length,
+      'social-emotional': socialEmotionalSkills.length,
+      'self-care': selfCareSkills.length,
+      'sensory': sensorySkills.length,
+    },
+    foundational: allSkills.filter(s => s.milestoneImportance === 'foundational').length,
+    critical: allSkills.filter(s => s.milestoneImportance === 'critical').length,
+    skippable: allSkills.filter(s => s.isSkippable).length,
+  };
+  return stats;
 };

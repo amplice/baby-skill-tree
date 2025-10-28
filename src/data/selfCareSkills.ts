@@ -1,0 +1,602 @@
+import type { Skill } from '../types';
+
+export const selfCareSkills: Skill[] = [
+  // FEEDING PROGRESSION CHAIN
+
+  // Level 0-1: Breast/Bottle Feeding
+  {
+    id: 'sc-001',
+    name: 'Holds Bottle with Help',
+    description: 'Brings hands to bottle while you hold it',
+    domain: 'self-care',
+    ageRange: { min: 4, max: 7, typical: 6 },
+    prerequisites: [],
+    relatedSkills: ['fm-002'], // Hands to mouth
+    tips: [
+      'Baby is learning about feeding process',
+      'May pat or touch bottle',
+      'This is early self-feeding awareness',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-002',
+    name: 'Holds Bottle Independently',
+    description: 'Can hold and drink from bottle without help',
+    domain: 'self-care',
+    ageRange: { min: 6, max: 10, typical: 9 },
+    prerequisites: ['sc-001'],
+    relatedSkills: ['fm-006'], // Voluntary grasp
+    tips: [
+      'Supervise to prevent choking',
+      'Shows growing independence',
+      'May still need help positioning',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  // Level 2: Finger Feeding
+  {
+    id: 'sc-003',
+    name: 'Finger Feeding (Raking)',
+    description: 'Uses whole hand in raking motion to pick up soft foods',
+    domain: 'self-care',
+    ageRange: { min: 7, max: 9, typical: 8 },
+    prerequisites: [],
+    relatedSkills: ['fm-009'], // Raking grasp
+    tips: [
+      'Offer puffs, soft cooked vegetables',
+      'Always supervise to prevent choking',
+      'Messy eating is learning!',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-004',
+    name: 'Finger Feeding (Pincer)',
+    description: 'Uses pincer grasp to pick up small pieces of food',
+    domain: 'self-care',
+    ageRange: { min: 9, max: 12, typical: 10 },
+    prerequisites: ['sc-003'],
+    relatedSkills: ['fm-011', 'fm-012'], // Pincer grasp
+    tips: [
+      'Can now handle smaller pieces',
+      'Cut food into pea-sized pieces',
+      'Still supervise closely',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  // Level 3: Utensil Use
+  {
+    id: 'sc-005',
+    name: 'Attempts to Use Spoon',
+    description: 'Tries to scoop with spoon but most food falls off',
+    domain: 'self-care',
+    ageRange: { min: 9, max: 14, typical: 12 },
+    prerequisites: ['sc-004'],
+    relatedSkills: ['fm-012'], // Fine pincer grasp
+    tips: [
+      'Pre-load spoon and hand to baby',
+      'Expect lots of mess!',
+      'Practice makes perfect',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-006',
+    name: 'Scoops with Spoon',
+    description: 'Can scoop food with spoon and get some to mouth',
+    domain: 'self-care',
+    ageRange: { min: 13, max: 18, typical: 15 },
+    prerequisites: ['sc-005'],
+    tips: [
+      'Use thick foods like yogurt, oatmeal',
+      'Still messy but improving',
+      'Let child practice even if slow',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-007',
+    name: 'Drinks from Cup Without Lid',
+    description: 'Can drink from open cup with some spilling',
+    domain: 'self-care',
+    ageRange: { min: 15, max: 20, typical: 18 },
+    prerequisites: ['sc-002'],
+    tips: [
+      'Start with small amounts of liquid',
+      'Use a small, wide cup',
+      'This is an important self-care skill',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-008',
+    name: 'Uses Spoon Well',
+    description: 'Uses spoon effectively with minimal spilling',
+    domain: 'self-care',
+    ageRange: { min: 18, max: 24, typical: 21 },
+    prerequisites: ['sc-006'],
+    tips: [
+      'Can handle various food textures',
+      'Still may prefer fingers for some foods',
+      'This takes lots of practice',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-009',
+    name: 'Uses Fork',
+    description: 'Can spear food with fork and bring to mouth',
+    domain: 'self-care',
+    ageRange: { min: 18, max: 30, typical: 24 },
+    prerequisites: ['sc-008'],
+    tips: [
+      'Fork is usually introduced after spoon mastery',
+      'Start with soft, easy-to-spear foods',
+      'Supervise use of fork',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  {
+    id: 'sc-010',
+    name: 'Uses Spoon and Fork Well',
+    description: 'Competently uses both spoon and fork for most meals',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-008', 'sc-009'],
+    tips: [
+      'Can eat most meals independently',
+      'Still needs supervision',
+      'May need help with difficult foods',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'very-complex',
+    variability: 'moderate',
+    category: 'feeding',
+  },
+
+  // DRESSING SKILLS CHAIN
+
+  // Undressing (comes before dressing)
+  {
+    id: 'sc-011',
+    name: 'Cooperates with Dressing',
+    description: 'Holds out arms and legs when being dressed',
+    domain: 'self-care',
+    ageRange: { min: 10, max: 14, typical: 12 },
+    prerequisites: [],
+    tips: [
+      'Baby is learning about the dressing routine',
+      'Talk through the process',
+      'This is the first step toward independence',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-012',
+    name: 'Pushes Arms Through Sleeves',
+    description: 'Actively pushes arms through sleeves when being dressed',
+    domain: 'self-care',
+    ageRange: { min: 12, max: 20, typical: 16 },
+    prerequisites: ['sc-011'],
+    tips: [
+      'Encourage this participation',
+      'Makes dressing easier and faster',
+      'Learning body awareness',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-013',
+    name: 'Removes Socks',
+    description: 'Can pull off own socks',
+    domain: 'self-care',
+    ageRange: { min: 12, max: 20, typical: 18 },
+    prerequisites: ['sc-012'],
+    tips: [
+      'This is usually the first item baby removes',
+      'Shows growing independence',
+      'Easier than putting on',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-014',
+    name: 'Removes Shoes',
+    description: 'Can take off loose/velcro shoes independently',
+    domain: 'self-care',
+    ageRange: { min: 15, max: 24, typical: 20 },
+    prerequisites: ['sc-013'],
+    tips: [
+      'Easier with velcro or slip-on shoes',
+      'May still need help with tight shoes',
+      'Part of undressing progression',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-015',
+    name: 'Removes Pants',
+    description: 'Can pull down and remove elastic-waist pants',
+    domain: 'self-care',
+    ageRange: { min: 18, max: 30, typical: 24 },
+    prerequisites: ['sc-013'],
+    tips: [
+      'Use elastic waistbands for practice',
+      'Important for toilet training',
+      'Undressing easier than dressing',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-016',
+    name: 'Removes Pullover Shirt',
+    description: 'Can pull shirt over head and off',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-015'],
+    tips: [
+      'May need help getting started',
+      'Use loose-fitting shirts',
+      'This takes coordination',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  // Putting on clothes (harder than removing)
+  {
+    id: 'sc-017',
+    name: 'Puts on Socks',
+    description: 'Can put on socks (may be wrong foot or heel on top)',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-013'],
+    tips: [
+      'Don\'t worry about correct foot yet',
+      'This is very challenging fine motor task',
+      'Celebrate the attempt!',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-018',
+    name: 'Puts on Shoes',
+    description: 'Can put on shoes (may be wrong feet)',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-014'],
+    tips: [
+      'Velcro or slip-on shoes are easiest',
+      'Left/right distinction comes later',
+      'Important independence skill',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-019',
+    name: 'Puts on Pants',
+    description: 'Can pull up elastic-waist pants with some help',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-015'],
+    tips: [
+      'May need help getting legs in',
+      'Can usually pull up once started',
+      'Important for toilet training',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  {
+    id: 'sc-020',
+    name: 'Puts on Shirt with Minimal Help',
+    description: 'Can put on pullover shirt with a little assistance',
+    domain: 'self-care',
+    ageRange: { min: 30, max: 42, typical: 36 },
+    prerequisites: ['sc-016'],
+    tips: [
+      'May need help finding armholes',
+      'Front/back recognition developing',
+      'Very complex motor planning task',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'very-complex',
+    variability: 'moderate',
+    category: 'dressing',
+  },
+
+  // TOILET TRAINING CHAIN
+
+  {
+    id: 'sc-021',
+    name: 'Shows Awareness of Wet/Dirty Diaper',
+    description: 'Indicates discomfort when diaper is wet or soiled',
+    domain: 'self-care',
+    ageRange: { min: 18, max: 30, typical: 24 },
+    prerequisites: [],
+    tips: [
+      'This is first sign of toilet readiness',
+      'May tell you, pull at diaper, or hide',
+      'Shows body awareness developing',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'high',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-022',
+    name: 'Stays Dry for 2 Hours',
+    description: 'Can keep diaper dry for 2-hour stretches',
+    domain: 'self-care',
+    ageRange: { min: 18, max: 30, typical: 24 },
+    prerequisites: [],
+    tips: [
+      'Shows bladder control is developing',
+      'Sign of physiological readiness',
+      'Track patterns to identify readiness',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'simple',
+    variability: 'high',
+    clinicalNotes: 'Bladder control develops 24-30 months for most children',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-023',
+    name: 'Can Pull Pants Up and Down',
+    description: 'Can manage elastic-waist pants independently',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-015', 'sc-019'],
+    tips: [
+      'Critical prerequisite for toilet independence',
+      'Practice during diaper changes',
+      'Use loose elastic-waist pants',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-024',
+    name: 'Shows Interest in Toilet',
+    description: 'Wants to watch others use toilet, talks about it',
+    domain: 'self-care',
+    ageRange: { min: 18, max: 36, typical: 27 },
+    prerequisites: [],
+    tips: [
+      'Sign of readiness and curiosity',
+      'Let child observe (if family is comfortable)',
+      'Read books about using the potty',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'high',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-025',
+    name: 'Communicates Need to Use Toilet',
+    description: 'Tells you they need to go (may be too late at first)',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-021', 'sc-024'],
+    relatedSkills: ['lang-011'], // Needs language skills
+    tips: [
+      'May be last-second at first',
+      'Praise communication even if too late',
+      'Timing will improve with practice',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'complex',
+    variability: 'high',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-026',
+    name: 'Sits on Potty',
+    description: 'Willingly sits on potty chair or toilet (may not go yet)',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-024'],
+    tips: [
+      'Let child sit fully clothed at first',
+      'Read books or sing songs while sitting',
+      'No pressure - just getting comfortable',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'high',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-027',
+    name: 'Uses Toilet with Assistance',
+    description: 'Successfully uses toilet with reminders and help',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 42, typical: 33 },
+    prerequisites: ['sc-022', 'sc-023', 'sc-025', 'sc-026'],
+    tips: [
+      'This is a very complex milestone!',
+      'Requires many prerequisite skills',
+      'Expect accidents - they\'re part of learning',
+      'Every child is different - no rush',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'very-complex', // Requires 7+ prerequisites!
+    variability: 'high',
+    clinicalNotes: 'Normal range is 18 months to 4 years; 2/3 ready by 24-30 months',
+    category: 'toileting',
+  },
+
+  {
+    id: 'sc-028',
+    name: 'Daytime Toilet Independence',
+    description: 'Uses toilet independently during day with few accidents',
+    domain: 'self-care',
+    ageRange: { min: 30, max: 48, typical: 36 },
+    prerequisites: ['sc-027'],
+    tips: [
+      'Still may need reminders occasionally',
+      'Nighttime control comes later',
+      'Major independence milestone!',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'very-complex',
+    variability: 'high',
+    category: 'toileting',
+  },
+
+  // SLEEP SKILLS
+
+  {
+    id: 'sc-029',
+    name: 'Sleeps 2-4 Hour Chunks',
+    description: 'Sleeps in 2-4 hour stretches (newborn pattern)',
+    domain: 'self-care',
+    ageRange: { min: 0, max: 2, typical: 0 },
+    prerequisites: [],
+    tips: [
+      'Normal newborn sleep pattern',
+      'Wakes to feed',
+      'Gradual consolidation will come',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'sleep',
+  },
+
+  {
+    id: 'sc-030',
+    name: 'First Longer Sleep Block',
+    description: 'Sleeps one 4-5 hour stretch at night',
+    domain: 'self-care',
+    ageRange: { min: 6, max: 16, typical: 12 },
+    prerequisites: ['sc-029'],
+    tips: [
+      'Sleep consolidation is beginning!',
+      'Usually happens in first half of night',
+      'Huge milestone for parents',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'high',
+    category: 'sleep',
+  },
+
+  {
+    id: 'sc-031',
+    name: 'Sleeps 5-6 Hour Stretch',
+    description: 'Can sleep 5-6 hours without waking (considered "through the night")',
+    domain: 'self-care',
+    ageRange: { min: 12, max: 24, typical: 18 },
+    prerequisites: ['sc-030'],
+    tips: [
+      'This is technically "sleeping through night"',
+      'Many babies still wake 1-2 times',
+      'Both patterns are normal',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'high',
+    category: 'sleep',
+  },
+
+  {
+    id: 'sc-032',
+    name: 'Sleeps 10-12 Hours',
+    description: 'Can sleep 10-12 hours at night (may still wake occasionally)',
+    domain: 'self-care',
+    ageRange: { min: 24, max: 36, typical: 30 },
+    prerequisites: ['sc-031'],
+    tips: [
+      'Many babies don\'t achieve this until toddlerhood',
+      'May still need intervention when wakes',
+      'High variability is normal',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'high',
+    clinicalNotes: 'Very few infants sleep full 10-12 hours without ANY waking in first year',
+    category: 'sleep',
+  },
+];

@@ -1,0 +1,488 @@
+import type { Skill } from '../types';
+
+export const languageSkills: Skill[] = [
+  // EXPRESSIVE LANGUAGE CHAIN
+
+  // Level 0: Crying (Birth)
+  {
+    id: 'lang-001',
+    name: 'Crying for Communication',
+    description: 'Uses different cries to communicate different needs (hunger, discomfort, etc.)',
+    domain: 'language',
+    ageRange: { min: 0, max: 2, typical: 0 },
+    prerequisites: [],
+    tips: [
+      'Pay attention to different cry patterns',
+      'Response time helps baby learn communication works',
+      'This is baby\'s first form of intentional communication',
+    ],
+    milestoneImportance: 'foundational',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'pre-language',
+  },
+
+  // Level 1: Cooing (2-3 months)
+  {
+    id: 'lang-002',
+    name: 'Cooing',
+    description: 'Makes cooing sounds - vowel-like sounds such as "ooh," "aah"',
+    domain: 'language',
+    ageRange: { min: 2, max: 4, typical: 3 },
+    prerequisites: ['lang-001'],
+    tips: [
+      'Coo back to your baby to encourage vocal play',
+      'Make eye contact while cooing together',
+      'This is baby practicing vocal cord control',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'pre-language',
+  },
+
+  // Level 2: Vocal Play (4-6 months)
+  {
+    id: 'lang-003',
+    name: 'Vocal Play',
+    description: 'Experiments with sounds - squeals, raspberries, varying pitch',
+    domain: 'language',
+    ageRange: { min: 4, max: 6, typical: 5 },
+    prerequisites: ['lang-002'],
+    tips: [
+      'Imitate baby\'s sounds to encourage experimentation',
+      'Baby is learning to control their voice',
+      'This builds oral motor skills for speech',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'pre-language',
+  },
+
+  // Level 3: Babbling (6-10 months)
+  {
+    id: 'lang-004',
+    name: 'Babbling - Repetitive Syllables',
+    description: 'Repeats simple syllables like "ba-ba-ba," "da-da-da," "ma-ma-ma"',
+    domain: 'language',
+    ageRange: { min: 6, max: 10, typical: 7 },
+    prerequisites: ['lang-003'],
+    tips: [
+      'Respond as if baby is talking to you',
+      'Repeat the sounds back',
+      'This is critical practice for speech sounds',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'simple',
+    variability: 'low',
+    clinicalNotes: 'No babbling by 12 months is a red flag - consult pediatrician',
+    category: 'babbling',
+  },
+
+  {
+    id: 'lang-005',
+    name: 'Canonical Babbling',
+    description: 'Babbles with consonant-vowel combinations more consistently',
+    domain: 'language',
+    ageRange: { min: 8, max: 10, typical: 8 },
+    prerequisites: ['lang-004'],
+    tips: [
+      'This sounds more speech-like',
+      'Baby may say "mama" or "dada" without meaning yet',
+      'Continue having "conversations" with your baby',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'babbling',
+  },
+
+  {
+    id: 'lang-006',
+    name: 'Jargon Babbling',
+    description: 'Babbles with sentence-like intonation, as if having a conversation',
+    domain: 'language',
+    ageRange: { min: 10, max: 12, typical: 11 },
+    prerequisites: ['lang-005'],
+    tips: [
+      'Sounds like baby is speaking their own language',
+      'Uses inflection like questions and statements',
+      'Responds to this as if it\'s real conversation',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'moderate',
+    category: 'babbling',
+  },
+
+  // Level 4: First Words (12 months)
+  {
+    id: 'lang-007',
+    name: 'First Meaningful Word',
+    description: 'Says first word with meaning (typically "mama," "dada," "ball," or "dog")',
+    domain: 'language',
+    ageRange: { min: 10, max: 18, typical: 12 },
+    prerequisites: ['lang-005'],
+    tips: [
+      'Name objects consistently to help baby learn words',
+      'Celebrate when baby uses words!',
+      'Understanding comes before speaking',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'moderate',
+    variability: 'moderate',
+    clinicalNotes: 'No words by 18 months warrants evaluation',
+    category: 'first-words',
+  },
+
+  {
+    id: 'lang-008',
+    name: '3-5 Words',
+    description: 'Uses 3-5 words consistently with meaning',
+    domain: 'language',
+    ageRange: { min: 12, max: 18, typical: 15 },
+    prerequisites: ['lang-007'],
+    tips: [
+      'Each baby\'s first words are unique',
+      'Words may not be perfectly clear yet',
+      'Understand more words than they can say',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'vocabulary-building',
+  },
+
+  {
+    id: 'lang-009',
+    name: '10-20 Words',
+    description: 'Vocabulary of about 10-20 words',
+    domain: 'language',
+    ageRange: { min: 15, max: 20, typical: 18 },
+    prerequisites: ['lang-008'],
+    tips: [
+      'Read books together daily',
+      'Name everything you see during daily routines',
+      'Some babies have vocabulary explosion around this age',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'high',
+    category: 'vocabulary-building',
+  },
+
+  // Level 5: Vocabulary Explosion (18-24 months)
+  {
+    id: 'lang-010',
+    name: '50+ Words',
+    description: 'Vocabulary of 50+ words - critical threshold',
+    domain: 'language',
+    ageRange: { min: 18, max: 24, typical: 20 },
+    prerequisites: ['lang-009'],
+    tips: [
+      'This is the threshold for combining words',
+      'Some children have gradual growth, others have sudden explosion',
+      'Both patterns are normal',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'moderate',
+    variability: 'high',
+    clinicalNotes: 'Fewer than 50 words by 24 months may indicate language delay',
+    category: 'vocabulary-building',
+  },
+
+  // Level 6: Two-Word Phrases (18-24 months)
+  {
+    id: 'lang-011',
+    name: 'Two-Word Phrases',
+    description: 'Combines two words together like "more milk," "go bye-bye," "daddy up"',
+    domain: 'language',
+    ageRange: { min: 18, max: 30, typical: 24 },
+    prerequisites: ['lang-010'], // Requires 35-50 words first!
+    tips: [
+      'Model two-word phrases in your speech',
+      'Expand on baby\'s single words ("Ball!" → "Big ball!")',
+      'This is a huge language leap',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'complex', // Requires large vocabulary prerequisite
+    variability: 'moderate',
+    clinicalNotes: 'No two-word phrases by 30 months with <50 words indicates SLI',
+    category: 'phrases',
+  },
+
+  // Level 7: Expanding Language (24-30 months)
+  {
+    id: 'lang-012',
+    name: '200-300 Words',
+    description: 'Vocabulary expands to 200-300 words',
+    domain: 'language',
+    ageRange: { min: 24, max: 30, typical: 27 },
+    prerequisites: ['lang-010'],
+    tips: [
+      'Vocabulary grows rapidly at this age',
+      'Learning 30-50 new words per month is common',
+      'Continue reading and talking frequently',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'vocabulary-building',
+  },
+
+  {
+    id: 'lang-013',
+    name: 'Three-Word Sentences',
+    description: 'Uses simple 3-word sentences like "I want cookie"',
+    domain: 'language',
+    ageRange: { min: 24, max: 30, typical: 27 },
+    prerequisites: ['lang-011'],
+    tips: [
+      'Grammar isn\'t perfect yet - that\'s normal',
+      'May say "me do it" instead of "I do it"',
+      'Model correct grammar without criticizing',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'sentences',
+  },
+
+  // Level 8: Conversational Speech (30-36 months)
+  {
+    id: 'lang-014',
+    name: '900-1000 Words',
+    description: 'Vocabulary of about 900-1000 words',
+    domain: 'language',
+    ageRange: { min: 30, max: 36, typical: 33 },
+    prerequisites: ['lang-012'],
+    tips: [
+      'Can name most everyday objects',
+      'Understands far more words than uses',
+      'Language explosion continues',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'vocabulary-building',
+  },
+
+  {
+    id: 'lang-015',
+    name: 'Simple Sentences',
+    description: 'Speaks in simple 3-4 word sentences consistently',
+    domain: 'language',
+    ageRange: { min: 30, max: 36, typical: 33 },
+    prerequisites: ['lang-013'],
+    tips: [
+      'Strangers can understand about 75% of speech',
+      'Grammar continues to improve',
+      'Can tell simple stories',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'sentences',
+  },
+
+  {
+    id: 'lang-016',
+    name: 'Asks "Why?" Questions',
+    description: 'Frequently asks "why?" to learn about the world',
+    domain: 'language',
+    ageRange: { min: 30, max: 36, typical: 33 },
+    prerequisites: ['lang-015'],
+    tips: [
+      'Answer questions simply and honestly',
+      'This shows curiosity and language understanding',
+      'It\'s okay to say "I don\'t know, let\'s find out!"',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'conversation',
+  },
+
+  {
+    id: 'lang-017',
+    name: 'Conversational Speech',
+    description: 'Engages in back-and-forth conversations with 3-4 exchanges',
+    domain: 'language',
+    ageRange: { min: 30, max: 36, typical: 33 },
+    prerequisites: ['lang-015', 'lang-016'],
+    tips: [
+      'Have real conversations during daily activities',
+      'Ask open-ended questions',
+      'Give child time to respond',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'very-complex',
+    variability: 'moderate',
+    category: 'conversation',
+  },
+
+  // RECEPTIVE LANGUAGE (Understanding)
+
+  {
+    id: 'lang-r01',
+    name: 'Recognizes Mother\'s Voice',
+    description: 'Shows recognition of mother\'s voice, may calm when hearing it',
+    domain: 'language',
+    ageRange: { min: 0, max: 1, typical: 0 },
+    prerequisites: [],
+    tips: [
+      'Baby learned your voice in the womb',
+      'Talk to baby frequently',
+      'This is the foundation for language development',
+    ],
+    milestoneImportance: 'foundational',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r02',
+    name: 'Responds to Familiar Voices',
+    description: 'Turns head or shows recognition when hearing familiar voices',
+    domain: 'language',
+    ageRange: { min: 2, max: 4, typical: 3 },
+    prerequisites: ['lang-r01'],
+    tips: [
+      'Baby is learning to distinguish different voices',
+      'Talk to baby during caregiving routines',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r03',
+    name: 'Responds to Name',
+    description: 'Turns to look when name is called',
+    domain: 'language',
+    ageRange: { min: 6, max: 10, typical: 9 },
+    prerequisites: ['lang-r02'],
+    tips: [
+      'Use baby\'s name frequently',
+      'Get close to eye level when calling name',
+      'This is an important social-communication milestone',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'simple',
+    variability: 'low',
+    clinicalNotes: 'Not responding to name by 9-12 months may warrant evaluation',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r04',
+    name: 'Understands "No"',
+    description: 'Pauses or looks at you when you say "no"',
+    domain: 'language',
+    ageRange: { min: 9, max: 12, typical: 10 },
+    prerequisites: ['lang-r03'],
+    tips: [
+      'Use "no" sparingly so it retains meaning',
+      'Pair with facial expression and tone',
+      'May not always obey, but shows understanding',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'simple',
+    variability: 'low',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r05',
+    name: 'Follows Simple 1-Step Commands',
+    description: 'Can follow simple commands like "come here" or "give me the ball"',
+    domain: 'language',
+    ageRange: { min: 12, max: 18, typical: 15 },
+    prerequisites: ['lang-r04'],
+    tips: [
+      'Give one instruction at a time',
+      'Use gestures along with words initially',
+      'Praise when baby follows directions',
+    ],
+    milestoneImportance: 'critical',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r06',
+    name: 'Points to Body Parts',
+    description: 'Points to body parts when named ("Where\'s your nose?")',
+    domain: 'language',
+    ageRange: { min: 18, max: 24, typical: 21 },
+    prerequisites: ['lang-r05'],
+    tips: [
+      'Play naming games with body parts',
+      'Start with face parts (nose, eyes, mouth)',
+      'Make it fun with songs',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r07',
+    name: 'Points to Pictures in Books',
+    description: 'Points to familiar objects in books when named',
+    domain: 'language',
+    ageRange: { min: 18, max: 24, typical: 21 },
+    prerequisites: ['lang-r05'],
+    tips: [
+      'Read simple books together daily',
+      'Ask "Where\'s the dog?"',
+      'Builds vocabulary and concepts',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'moderate',
+    variability: 'moderate',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r08',
+    name: 'Follows 2-Step Commands',
+    description: 'Can follow two-step commands like "Get your shoes and bring them here"',
+    domain: 'language',
+    ageRange: { min: 24, max: 30, typical: 27 },
+    prerequisites: ['lang-r05'],
+    tips: [
+      'Start with related actions',
+      'Give time for child to process',
+      'This requires memory and understanding',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'receptive',
+  },
+
+  {
+    id: 'lang-r09',
+    name: 'Understands Most Everyday Speech',
+    description: 'Understands most things said about familiar topics and routines',
+    domain: 'language',
+    ageRange: { min: 30, max: 36, typical: 33 },
+    prerequisites: ['lang-r08'],
+    tips: [
+      'Can have real conversations now',
+      'Understanding is ahead of speaking ability',
+      'Can follow complex instructions',
+    ],
+    milestoneImportance: 'standard',
+    complexity: 'complex',
+    variability: 'moderate',
+    category: 'receptive',
+  },
+];
