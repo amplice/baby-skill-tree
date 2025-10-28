@@ -90,12 +90,8 @@ const TreeView = () => {
             <span className="text-gray-600">Locked</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-white border-2 border-gray-400"></div>
+            <div className="w-3 h-3 rounded-full bg-primary-100 border-2 border-primary-400"></div>
             <span className="text-gray-600">Available</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-primary-200 border-2 border-primary-500"></div>
-            <span className="text-gray-600">In Progress</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-success-200 border-2 border-success-500"></div>

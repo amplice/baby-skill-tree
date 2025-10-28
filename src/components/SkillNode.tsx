@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Handle, Position } from 'reactflow';
 import type { NodeProps } from 'reactflow';
 import type { SkillNode as SkillNodeType } from '../types';
-import { Lock, CheckCircle2, Play, Circle } from 'lucide-react';
+import { Lock, CheckCircle2, Circle } from 'lucide-react';
 
 const SkillNode = ({ data }: NodeProps<SkillNodeType>) => {
   const { name, status, ageRange, milestoneImportance } = data;
@@ -16,17 +16,11 @@ const SkillNode = ({ data }: NodeProps<SkillNodeType>) => {
           text: 'text-success-900',
           icon: <CheckCircle2 className="w-5 h-5 text-success-600" />,
         };
-      case 'in-progress':
-        return {
-          bg: 'bg-primary-100 border-primary-500',
-          text: 'text-primary-900',
-          icon: <Play className="w-5 h-5 text-primary-600" />,
-        };
       case 'available':
         return {
-          bg: 'bg-white border-gray-300',
+          bg: 'bg-primary-50 border-primary-400',
           text: 'text-gray-900',
-          icon: <Circle className="w-5 h-5 text-gray-400" />,
+          icon: <Circle className="w-5 h-5 text-primary-500" />,
         };
       case 'locked':
       default:

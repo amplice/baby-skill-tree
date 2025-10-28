@@ -76,10 +76,8 @@ const SkillTree = ({ skills }: SkillTreeProps) => {
             switch (skill.status) {
               case 'mastered':
                 return '#22c55e';
-              case 'in-progress':
-                return '#0ea5e9';
               case 'available':
-                return '#ffffff';
+                return '#dbeafe';
               default:
                 return '#e5e7eb';
             }

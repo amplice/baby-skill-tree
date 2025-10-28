@@ -1,4 +1,4 @@
-import { X, Calendar, Lock, CheckCircle2, Play, Circle } from 'lucide-react';
+import { X, Calendar, Lock, CheckCircle2, Circle } from 'lucide-react';
 import type { Skill } from '../types';
 import { useProgressStore } from '../store/progressStore';
 import { getSkillById } from '../data';
@@ -16,7 +16,7 @@ const SkillDetail = ({ skill, onClose }: SkillDetailProps) => {
   const status = getSkillStatus(skill.id);
   const progress = getSkillProgress(skill.id);
 
-  const handleStatusChange = (newStatus: 'in-progress' | 'mastered' | 'available') => {
+  const handleStatusChange = (newStatus: 'mastered' | 'available') => {
     updateSkillStatus(skill.id, newStatus);
   };
 
@@ -24,11 +24,10 @@ const SkillDetail = ({ skill, onClose }: SkillDetailProps) => {
     switch (status) {
       case 'mastered':
         return <CheckCircle2 className="w-6 h-6 text-success-600" />;
-      case 'in-progress':
-        return <Play className="w-6 h-6 text-primary-600" />;
       case 'available':
-        return <Circle className="w-6 h-6 text-gray-400" />;
+        return <Circle className="w-6 h-6 text-primary-600" />;
       case 'locked':
+      default:
         return <Lock className="w-6 h-6 text-gray-400" />;
     }
   };
@@ -129,53 +128,44 @@ const SkillDetail = ({ skill, onClose }: SkillDetailProps) => {
           <h3 className="text-sm font-semibold text-gray-700 mb-3">
             Track Progress
           </h3>
-          <div className="space-y-2">
-            {status !== 'locked' && (
-              <>
-                {status !== 'in-progress' && (
-                  <button
-                    onClick={() => handleStatusChange('in-progress')}
-                    className="w-full btn-secondary flex items-center justify-center gap-2"
-                  >
-                    <Play className="w-4 h-4" />
-                    Mark as In Progress
-                  </button>
-                )}
-                {status !== 'mastered' && (
-                  <button
-                    onClick={() => handleStatusChange('mastered')}
-                    className="w-full btn-primary flex items-center justify-center gap-2"
-                  >
-                    <CheckCircle2 className="w-4 h-4" />
-                    Mark as Mastered
-                  </button>
-                )}
-                {status !== 'available' && (
-                  <button
-                    onClick={() => handleStatusChange('available')}
-                    className="w-full btn-text"
-                  >
-                    Reset to Available
-                  </button>
-                )}
-              </>
-            )}
+          <div className="space-y-3">
             {status === 'locked' && (
               <p className="text-sm text-gray-500 text-center py-4">
                 Complete the prerequisite skills to unlock this milestone.
               </p>
             )}
+
+            {status === 'available' && (
+              <button
+                onClick={() => handleStatusChange('mastered')}
+                className="w-full btn-primary flex items-center justify-center gap-2"
+              >
+                <CheckCircle2 className="w-4 h-4" />
+                Mark as Mastered
+              </button>
+            )}
+
+            {status === 'mastered' && (
+              <>
+                <div className="bg-success-50 border border-success-200 rounded-lg p-4 text-center">
+                  <CheckCircle2 className="w-8 h-8 text-success-600 mx-auto mb-2" />
+                  <p className="text-sm font-semibold text-success-900">Mastered!</p>
+                  <p className="text-xs text-success-700 mt-1">Great progress!</p>
+                </div>
+                <button
+                  onClick={() => handleStatusChange('available')}
+                  className="w-full btn-text"
+                >
+                  Reset to Available
+                </button>
+              </>
+            )}
           </div>
 
           {/* Progress dates */}
-          {progress && (
-            <div className="mt-4 text-xs text-gray-500 space-y-1">
-              {progress.startedAt && (
-                <p>Started: {new Date(progress.startedAt).toLocaleDateString()}</p>
-              )}
-              {progress.masteredAt && (
-                <p>Mastered: {new Date(progress.masteredAt).toLocaleDateString()}</p>
-              )}
+          {progress?.masteredAt && (
+            <div className="mt-4 text-xs text-gray-500">
+              <p>Mastered: {new Date(progress.masteredAt).toLocaleDateString()}</p>
             </div>
           )}
         </div>
