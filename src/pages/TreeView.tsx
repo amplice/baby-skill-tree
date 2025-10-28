@@ -29,6 +29,10 @@ const TreeView = () => {
         return 'Social & Emotional';
       case 'cognitive':
         return 'Cognitive Skills';
+      case 'self-care':
+        return 'Self-Care Skills';
+      case 'sensory':
+        return 'Sensory Development';
       default:
         return 'Skills';
     }
@@ -46,6 +50,10 @@ const TreeView = () => {
         return '😊';
       case 'cognitive':
         return '🧠';
+      case 'self-care':
+        return '🍽️';
+      case 'sensory':
+        return '👂';
       default:
         return '⭐';
     }

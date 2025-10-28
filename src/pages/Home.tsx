@@ -92,7 +92,7 @@ const Home = () => {
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <Sparkles className="w-6 h-6 text-primary-500 mx-auto mb-1" />
-                <p className="text-xs text-gray-600">40+ Skills</p>
+                <p className="text-xs text-gray-600">255 Skills</p>
               </div>
               <div>
                 <Target className="w-6 h-6 text-primary-500 mx-auto mb-1" />
@@ -140,7 +140,7 @@ const Home = () => {
 
       {/* Main content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Gross Motor */}
           <div
             onClick={() => navigate('/tree/gross-motor')}
@@ -155,14 +155,14 @@ const Home = () => {
                       🤸
                     </div>
                     <span className="px-3 py-1 bg-primary-100 text-primary-700 text-xs font-bold rounded-full uppercase tracking-wide">
-                      24 Skills
+                      61 Skills
                     </span>
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors leading-tight">
-                    Gross Motor Skills
+                    Gross Motor
                   </h2>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Movement and physical milestones: tummy time, rolling, sitting, crawling, walking
+                    Movement milestones: rolling, sitting, crawling, walking, running, jumping
                   </p>
                 </div>
               </div>
@@ -189,14 +189,14 @@ const Home = () => {
                       ✋
                     </div>
                     <span className="px-3 py-1 bg-success-100 text-success-700 text-xs font-bold rounded-full uppercase tracking-wide">
-                      16 Skills
+                      48 Skills
                     </span>
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-success-600 transition-colors leading-tight">
-                    Fine Motor Skills
+                    Fine Motor
                   </h2>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Hand and finger skills: grasping, reaching, pincer grip, stacking
+                    Hand skills: grasping, pincer grip, stacking, drawing, scissors
                   </p>
                 </div>
               </div>
@@ -209,39 +209,174 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Coming soon cards */}
-          <div className="relative overflow-hidden bg-white/40 backdrop-blur-sm rounded-2xl border-2 border-dashed border-gray-300 p-7">
-            <div className="absolute top-4 right-4 px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase tracking-wide">
-              Coming Soon
-            </div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center text-xl">
-                💬
+          {/* Language */}
+          <div
+            onClick={() => navigate('/tree/language')}
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      💬
+                    </div>
+                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      26 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors leading-tight">
+                    Language
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Communication: cooing, babbling, first words, sentences
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-purple-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-gray-700 mb-2 leading-tight">
-              Language & Communication
-            </h2>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              Cooing, babbling, first words, and language development
-            </p>
           </div>
 
-          <div className="relative overflow-hidden bg-white/40 backdrop-blur-sm rounded-2xl border-2 border-dashed border-gray-300 p-7">
-            <div className="absolute top-4 right-4 px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase tracking-wide">
-              Coming Soon
-            </div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center text-xl">
-                😊
+          {/* Cognitive */}
+          <div
+            onClick={() => navigate('/tree/cognitive')}
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-100 to-blue-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      🧠
+                    </div>
+                    <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      33 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors leading-tight">
+                    Cognitive
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Thinking: object permanence, problem-solving, pretend play
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-indigo-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-gray-700 mb-2 leading-tight">
-              Social & Emotional
-            </h2>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              Smiling, attachment, emotional regulation, and social interaction
-            </p>
+          </div>
+
+          {/* Social-Emotional */}
+          <div
+            onClick={() => navigate('/tree/social-emotional')}
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 via-transparent to-orange-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      😊
+                    </div>
+                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      32 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors leading-tight">
+                    Social-Emotional
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Emotions: smiling, attachment, empathy, cooperation
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-yellow-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Self-Care */}
+          <div
+            onClick={() => navigate('/tree/self-care')}
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-teal-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-100 to-teal-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      🍽️
+                    </div>
+                    <span className="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      32 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors leading-tight">
+                    Self-Care
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Independence: feeding, dressing, toilet training, sleep
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-cyan-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Sensory */}
+          <div
+            onClick={() => navigate('/tree/sensory')}
+            className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative p-7">
+              <div className="flex items-start justify-between mb-5">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-100 to-pink-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                      👂
+                    </div>
+                    <span className="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold rounded-full uppercase tracking-wide">
+                      23 Skills
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-rose-600 transition-colors leading-tight">
+                    Sensory
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Senses: visual, auditory, tactile, vestibular development
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-rose-600 font-semibold group-hover:gap-3 transition-all">
+                <span>Explore Tree</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
 
