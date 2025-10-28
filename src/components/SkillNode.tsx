@@ -48,7 +48,8 @@ const SkillNode = ({ data }: NodeProps<SkillNodeType>) => {
         transition-all duration-200 cursor-pointer
         ${statusStyle.bg}
         ${isCritical ? 'ring-2 ring-amber-400 ring-offset-2' : ''}
-        hover:shadow-lg
+        hover:shadow-xl hover:scale-105 hover:z-10
+        active:scale-100 active:shadow-lg
       `}
     >
       {/* Connection handles */}

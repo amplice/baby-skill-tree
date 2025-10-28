@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 import ReactFlow, {
   Background,
   Controls,
@@ -25,16 +25,22 @@ const nodeTypes: NodeTypes = {
 
 const SkillTree = ({ skills }: SkillTreeProps) => {
   const getSkillStatus = useProgressStore((state) => state.getSkillStatus);
+  const skillProgress = useProgressStore((state) => state.skillProgress);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
-  // Generate nodes and edges
+  // Generate nodes and edges - re-generate when skill progress changes
   const { nodes: initialNodes, edges: initialEdges } = useMemo(
     () => createSkillTree(skills, getSkillStatus),
-    [skills, getSkillStatus]
+    [skills, getSkillStatus, skillProgress] // Add skillProgress to trigger updates
   );
 
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+
+  // Update nodes when initialNodes change
+  useEffect(() => {
+    setNodes(initialNodes);
+  }, [initialNodes, setNodes]);
 
   // Handle node click to show details
   const onNodeClick = useCallback((_event: React.MouseEvent, node: Node) => {

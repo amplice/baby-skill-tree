@@ -130,7 +130,7 @@ const Home = () => {
             </div>
             <button
               onClick={() => setShowSetup(true)}
-              className="text-sm text-primary-600 hover:text-primary-700"
+              className="text-sm text-primary-600 hover:text-primary-700 font-medium px-3 py-1.5 rounded-md hover:bg-primary-50 active:bg-primary-100 transition-all"
             >
               Edit Profile
             </button>
@@ -144,7 +144,7 @@ const Home = () => {
           {/* Gross Motor */}
           <div
             onClick={() => navigate('/tree/gross-motor')}
-            className="card hover:shadow-lg transition-all cursor-pointer group"
+            className="card hover:shadow-xl hover:scale-105 active:scale-100 transition-all duration-200 cursor-pointer group"
           >
             <div className="flex items-start justify-between mb-4">
               <div>
@@ -166,7 +166,7 @@ const Home = () => {
           {/* Fine Motor */}
           <div
             onClick={() => navigate('/tree/fine-motor')}
-            className="card hover:shadow-lg transition-all cursor-pointer group"
+            className="card hover:shadow-xl hover:scale-105 active:scale-100 transition-all duration-200 cursor-pointer group"
           >
             <div className="flex items-start justify-between mb-4">
               <div>

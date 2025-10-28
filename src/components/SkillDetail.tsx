@@ -153,7 +153,7 @@ const SkillDetail = ({ skill, onClose }: SkillDetailProps) => {
                 {status !== 'available' && (
                   <button
                     onClick={() => handleStatusChange('available')}
-                    className="w-full text-sm text-gray-600 hover:text-gray-900"
+                    className="w-full btn-text"
                   >
                     Reset to Available
                   </button>
