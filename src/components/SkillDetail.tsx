@@ -70,10 +70,49 @@ const SkillDetail = ({ skill, onClose }: SkillDetailProps) => {
           <p className="text-2xl font-bold text-gray-900 tracking-tight">
             {skill.ageRange.min}-{skill.ageRange.max} <span className="text-lg font-semibold text-gray-500">months</span>
           </p>
-          <p className="text-sm text-gray-600 mt-2">
-            Typical timeframe for this milestone
-          </p>
+          {skill.ageRange.typical && (
+            <p className="text-sm text-gray-600 mt-2">
+              <span className="font-semibold">Typical age:</span> {skill.ageRange.typical} months (75% of children)
+            </p>
+          )}
+          {skill.variability && (
+            <p className="text-xs text-gray-500 mt-1">
+              <span className="font-semibold">Individual variation:</span>{' '}
+              {skill.variability === 'high' && 'High - wide range is normal'}
+              {skill.variability === 'moderate' && 'Moderate - some variation expected'}
+              {skill.variability === 'low' && 'Low - fairly consistent timing'}
+            </p>
+          )}
         </div>
+
+        {/* Category & Complexity Badges */}
+        {(skill.category || skill.complexity) && (
+          <div className="flex flex-wrap gap-2">
+            {skill.category && (
+              <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                {skill.category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              </span>
+            )}
+            {skill.complexity && (
+              <span className={`inline-flex items-center px-3 py-1 text-xs font-medium rounded-full ${
+                skill.complexity === 'very-complex' ? 'bg-purple-100 text-purple-800' :
+                skill.complexity === 'complex' ? 'bg-indigo-100 text-indigo-800' :
+                skill.complexity === 'moderate' ? 'bg-cyan-100 text-cyan-800' :
+                'bg-emerald-100 text-emerald-800'
+              }`}>
+                {skill.complexity === 'very-complex' ? 'Very Complex Skill' :
+                 skill.complexity === 'complex' ? 'Complex Skill' :
+                 skill.complexity === 'moderate' ? 'Moderate Complexity' :
+                 'Simple Skill'}
+              </span>
+            )}
+            {skill.isSkippable && (
+              <span className="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full">
+                ⚠️ Can be skipped
+              </span>
+            )}
+          </div>
+        )}
 
         {/* Description Card */}
         <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
@@ -140,6 +179,40 @@ const SkillDetail = ({ skill, onClose }: SkillDetailProps) => {
                 <p className="font-bold text-amber-900 mb-1">Key Milestone</p>
                 <p className="text-sm text-amber-800 leading-relaxed">
                   This is an important developmental marker that pediatricians often check during well-child visits.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Foundational milestone */}
+        {skill.milestoneImportance === 'foundational' && (
+          <div className="bg-gradient-to-br from-violet-50 to-purple-50 border-2 border-violet-200 rounded-xl p-5 shadow-sm">
+            <div className="flex gap-3">
+              <svg className="w-6 h-6 text-violet-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+              <div>
+                <p className="font-bold text-violet-900 mb-1">🔑 Foundational Milestone</p>
+                <p className="text-sm text-violet-800 leading-relaxed">
+                  This skill unlocks many other abilities! Mastering this opens the door to multiple developmental areas.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Clinical Notes */}
+        {skill.clinicalNotes && (
+          <div className="bg-gradient-to-br from-rose-50 to-red-50 border-2 border-rose-200 rounded-xl p-5 shadow-sm">
+            <div className="flex gap-3">
+              <svg className="w-6 h-6 text-rose-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <div>
+                <p className="font-bold text-rose-900 mb-1">Clinical Note</p>
+                <p className="text-sm text-rose-800 leading-relaxed">
+                  {skill.clinicalNotes}
                 </p>
               </div>
             </div>

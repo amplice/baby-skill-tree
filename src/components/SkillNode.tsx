@@ -43,6 +43,7 @@ const SkillNode = ({ data }: NodeProps<SkillNodeType>) => {
 
   const statusStyle = getStatusStyle();
   const isCritical = milestoneImportance === 'critical';
+  const isFoundational = milestoneImportance === 'foundational';
 
   return (
     <div
@@ -52,6 +53,7 @@ const SkillNode = ({ data }: NodeProps<SkillNodeType>) => {
         ${statusStyle.bg} ${statusStyle.border}
         shadow-md ${statusStyle.shadow} ${statusStyle.glow}
         ${isCritical ? 'ring-2 ring-amber-400/60 ring-offset-2' : ''}
+        ${isFoundational ? 'ring-2 ring-violet-400/60 ring-offset-2' : ''}
         hover:shadow-2xl hover:scale-105 hover:z-10 hover:-translate-y-1
         active:scale-[0.98] active:translate-y-0
         backdrop-blur-sm
