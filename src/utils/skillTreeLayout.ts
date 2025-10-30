@@ -40,7 +40,7 @@ export const createSkillTree = (
   // Create nodes with positions
   const nodes: Node<SkillNode>[] = [];
 
-  sortedBuckets.forEach(([bucket, bucketSkills]) => {
+  sortedBuckets.forEach(([, bucketSkills]) => {
     // Within each age bucket, sort by actual age, then by number of prerequisites
     // (skills with fewer prerequisites go left to minimize line crossing)
     const sortedSkills = bucketSkills.sort((a, b) => {
