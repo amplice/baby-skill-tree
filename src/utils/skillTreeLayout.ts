@@ -8,71 +8,69 @@ interface LayoutOptions {
 
 /**
  * Converts skill data into React Flow nodes and edges with automatic layout
+ * Organizes skills vertically by age, so similar ages appear together
  */
 export const createSkillTree = (
   skills: Skill[],
   getSkillStatus: (skillId: string) => SkillStatus,
-  options: LayoutOptions = { horizontalSpacing: 300, verticalSpacing: 150 }
+  options: LayoutOptions = { horizontalSpacing: 300, verticalSpacing: 12 }
 ): { nodes: Node<SkillNode>[]; edges: Edge[] } => {
-  // Build a map of skills
-  const skillMap = new Map(skills.map((skill) => [skill.id, skill]));
-
-  // Calculate depth for each skill (longest path from root)
-  const depthMap = new Map<string, number>();
-  const calculateDepth = (skillId: string): number => {
-    if (depthMap.has(skillId)) {
-      return depthMap.get(skillId)!;
-    }
-
-    const skill = skillMap.get(skillId);
-    if (!skill || skill.prerequisites.length === 0) {
-      depthMap.set(skillId, 0);
-      return 0;
-    }
-
-    const maxPrereqDepth = Math.max(
-      ...skill.prerequisites.map((prereqId) => calculateDepth(prereqId))
-    );
-    const depth = maxPrereqDepth + 1;
-    depthMap.set(skillId, depth);
-    return depth;
+  // Get the representative age for positioning (prefer typical, fall back to min)
+  const getAge = (skill: Skill): number => {
+    return skill.ageRange.typical || skill.ageRange.min;
   };
 
-  // Calculate depths for all skills
-  skills.forEach((skill) => calculateDepth(skill.id));
+  // Group skills by age buckets (3-month intervals)
+  const ageBucketSize = 3; // 3 months per bucket
+  const ageGroupMap = new Map<number, Skill[]>();
 
-  // Group skills by depth level
-  const levelMap = new Map<number, Skill[]>();
   skills.forEach((skill) => {
-    const depth = depthMap.get(skill.id) || 0;
-    if (!levelMap.has(depth)) {
-      levelMap.set(depth, []);
+    const age = getAge(skill);
+    const bucket = Math.floor(age / ageBucketSize);
+
+    if (!ageGroupMap.has(bucket)) {
+      ageGroupMap.set(bucket, []);
     }
-    levelMap.get(depth)!.push(skill);
+    ageGroupMap.get(bucket)!.push(skill);
   });
+
+  // Sort buckets by age
+  const sortedBuckets = Array.from(ageGroupMap.entries()).sort((a, b) => a[0] - b[0]);
 
   // Create nodes with positions
   const nodes: Node<SkillNode>[] = [];
 
-  levelMap.forEach((levelSkills, level) => {
-    const sortedSkills = levelSkills.sort((a, b) => {
-      // Sort by age range, then by ID for consistency
-      if (a.ageRange.min !== b.ageRange.min) {
-        return a.ageRange.min - b.ageRange.min;
+  sortedBuckets.forEach(([bucket, bucketSkills]) => {
+    // Within each age bucket, sort by actual age, then by number of prerequisites
+    // (skills with fewer prerequisites go left to minimize line crossing)
+    const sortedSkills = bucketSkills.sort((a, b) => {
+      const ageA = getAge(a);
+      const ageB = getAge(b);
+
+      if (ageA !== ageB) {
+        return ageA - ageB;
       }
+
+      // Then by prerequisite count (fewer prereqs = further left)
+      if (a.prerequisites.length !== b.prerequisites.length) {
+        return a.prerequisites.length - b.prerequisites.length;
+      }
+
       return a.id.localeCompare(b.id);
     });
 
     sortedSkills.forEach((skill, index) => {
       const status = getSkillStatus(skill.id);
+      const age = getAge(skill);
 
-      // Calculate x position (spread horizontally)
+      // Calculate x position (spread horizontally within age group)
       const totalWidth = (sortedSkills.length - 1) * options.horizontalSpacing;
       const startX = -totalWidth / 2;
       const x = startX + index * options.horizontalSpacing;
 
-      // Calculate y position (stack vertically by level)
-      const y = level * options.verticalSpacing;
+      // Calculate y position based on actual age (in months)
+      // Use fine-grained vertical spacing based on age
+      const y = age * options.verticalSpacing;
 
       const node: Node<SkillNode> = {
         id: skill.id,
