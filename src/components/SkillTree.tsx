@@ -11,6 +11,7 @@ import 'reactflow/dist/style.css';
 
 import SkillNode from './SkillNode';
 import SkillDetail from './SkillDetail';
+import SkillList from './SkillList';
 import { createSkillTree } from '../utils/skillTreeLayout';
 import { useProgressStore } from '../store/progressStore';
 import type { Skill } from '../types';
@@ -27,6 +28,15 @@ const SkillTree = ({ skills }: SkillTreeProps) => {
   const getSkillStatus = useProgressStore((state) => state.getSkillStatus);
   const skillProgress = useProgressStore((state) => state.skillProgress);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Generate nodes and edges - re-generate when skill progress changes
   const { nodes: initialNodes, edges: initialEdges } = useMemo(
@@ -54,6 +64,42 @@ const SkillTree = ({ skills }: SkillTreeProps) => {
     setSelectedSkill(null);
   };
 
+  const handleSkillClick = (skill: Skill) => {
+    setSelectedSkill(skill);
+  };
+
+  // Calculate initial viewport to focus on earliest skills or user's current progress
+  const initialViewport = useMemo(() => {
+    // Find first available skill, or fallback to earliest skill
+    const availableNode = nodes.find(n => n.data.status === 'available');
+    const targetNode = availableNode || nodes[0];
+
+    if (targetNode) {
+      return {
+        x: -targetNode.position.x + 200, // Offset to center
+        y: -targetNode.position.y + 100,
+        zoom: 1.2, // More zoomed in
+      };
+    }
+
+    return { x: 200, y: 100, zoom: 1.2 };
+  }, [nodes]);
+
+  // Render mobile list view on small screens
+  if (isMobile) {
+    return (
+      <div className="relative w-full h-full">
+        <SkillList skills={skills} onSkillClick={handleSkillClick} />
+
+        {/* Skill detail panel */}
+        {selectedSkill && (
+          <SkillDetail skill={selectedSkill} onClose={handleCloseDetail} />
+        )}
+      </div>
+    );
+  }
+
+  // Render tree view on desktop
   return (
     <div className="relative w-full h-full">
       <ReactFlow
@@ -63,10 +109,10 @@ const SkillTree = ({ skills }: SkillTreeProps) => {
         onEdgesChange={onEdgesChange}
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
-        fitView
+        fitView={false}
         minZoom={0.1}
         maxZoom={1.5}
-        defaultViewport={{ x: 0, y: 0, zoom: 0.8 }}
+        defaultViewport={initialViewport}
       >
         <Background color="#e5e7eb" gap={16} />
         <Controls />
