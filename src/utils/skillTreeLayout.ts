@@ -13,7 +13,7 @@ interface LayoutOptions {
 export const createSkillTree = (
   skills: Skill[],
   getSkillStatus: (skillId: string) => SkillStatus,
-  options: LayoutOptions = { horizontalSpacing: 300, verticalSpacing: 12 }
+  options: LayoutOptions = { horizontalSpacing: 350, verticalSpacing: 120 }
 ): { nodes: Node<SkillNode>[]; edges: Edge[] } => {
   // Get the representative age for positioning (prefer typical, fall back to min)
   const getAge = (skill: Skill): number => {
